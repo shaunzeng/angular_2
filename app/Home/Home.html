@@ -1,0 +1,129 @@
+<br>
+<div class="row">
+    <div class="col-md-7">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <p>Welcome back, {{username}}</p>
+            </li>
+        </ul>
+        <br>
+        
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <h5>Your courses</h5>
+                    </div>
+                    <div class="col-xs-5">
+                        <a href="/courses" class="btn btn-secondary btn-sm">View All</a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item" *ngFor="let c of myCourses">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <a href="/courses/{{c.courseUrl}}">{{c.courseName}}</a> <span class="tag tag-info">{{c.courseCompletion}}%</span> 
+                    </div>
+                    <div class="col-xs-5">
+                        <!--div class="text-xs-center" id="example-caption-3"><small>{{c.courseCompletion}}%</small></div-->
+                        <progress class="progress" value="{{c.courseCompletion}}" max="100" aria-describedby="example-caption-3"></progress>
+                    </div>
+                </div>
+            </li>
+        </ul> 
+        <br>
+        
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <h5>Your Quizzes</h5>
+                    </div>
+                    <div class="col-xs-5">
+                        <a href="/quizzes" class="btn btn-secondary btn-sm">View All</a>
+                    </div>
+                </div>
+            </li>
+            
+            <li class="list-group-item" *ngFor="let q of myQuizzes">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <p ><a href="">{{q.title}}</a> <br> <small>Course: <a href="">{{q.course}}</a></small></p>
+                    </div>
+                    <div class="col-xs-5">
+                        <div *ngIf="q.isTaken"><span class="tag tag-danger">{{q.grade}}</span> "{{q.level}}"</div>
+                        <div *ngIf="!q.isTaken"><a class="btn btn-secondary btn-sm">Take the quiz now</a></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="col-md-5">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <h6>Billing Center</h6>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="" class="small">View Details</a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-8">
+                        Your Balance:
+                    </div>
+                    <div class="col-xs-4">
+                        $8798.00
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <h6>Inbox</h6>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="" class="small">View all</a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <p>No new message...</p>
+            </li>
+        </ul>
+        
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <h6>Scholarship Status</h6>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="" class="small">View detail</a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item" *ngFor="let s of myScholarship">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <a href="#">{{s.title}}</a>
+                    </div>
+                    <div class="col-xs-4">
+                        <span class="tag" 
+                                [class.tag-success]="s.approved"  
+                                [class.tag-info]="!s.approved">{{s.status}}</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
