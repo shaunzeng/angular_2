@@ -4,7 +4,6 @@ import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from '../Home/Home.component';
 import {CoursesComponent} from'../Courses/Courses.component';
 import {QuizzesComponent} from '../Quizzes/Quizzes.component';
-import {QuizResultsComponent} from'../QuizResults/QuizResults.component';
 import {EditAccountComponent} from '../EditAccount/EditAccount.component';
 import {PageNotFoundComponent} from'../PageNotFound/PageNotFound.component';
 

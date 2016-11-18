@@ -6,5 +6,7 @@ export class Course implements ICourse {
     public courseCompletion : number;
     public courseCompleted : boolean;
     public courseUrl : string;
-    
+    public courseDescription:string;
 }
+
+
