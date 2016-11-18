@@ -2,4 +2,4 @@
 
 A student admin dashboard 
 
-[![dashboard]()]
+[![dashboard](angular_2/app/assets/img/screentshot_1.png)](#features)
