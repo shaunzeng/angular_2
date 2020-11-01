@@ -1,0 +1,60 @@
+<br>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item" [class.active]="viewMode == 'myCourses'"><a (click)="viewMode = 'myCourses'">My Courses</a></li>
+  <li class="breadcrumb-item" [class.active]="viewMode == 'searchCourses'"><a (click)="viewMode = 'searchCourses'">Search Courses</a></li>
+</ol>
+<br>
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'myCourses'">
+        <div class="row">
+            <div class="col-xs-4" *ngFor="let c of myCourses">
+                <div class="card">
+                    <div class="card-block">
+                        <h5 class="card-title">{{c.courseName}}</h5>
+                        <progress class="progress" [class.progress-success]="c.courseCompleted" value="{{c.courseCompletion}}" max="100" aria-describedby="example-caption-3"></progress>
+                        <p class="small" style="height:42px;overflow:hidden">{{c.courseDescription}}</p>
+                        <a href="{{c.courseUrl}}" class="btn btn-primary btn-sm" *ngIf="!c.courseCompleted">Continue</a>
+                        <a href="{{c.courseUrl}}" class="btn btn-success btn-sm" *ngIf="c.courseCompleted" disabled>Completed</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="'searchCourses'">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search course..">
+            <span class="input-group-addon">Search</span>
+        </div>        
+        <br>
+        
+        <div class="row">
+            <div class="col-xs-6" *ngFor="let course of allCourses">
+                <div class="card">
+                    <img class="card-img-top" 
+                        src="http://learnplus.themekit.io/assets/images/gulp.png" 
+                        alt="Card image cap"
+                        style="display:block; width:100%">
+                    <div class="card-block">
+                        <h4 class="card-title">{{course.courseName}}</h4>
+                        <p class="card-text small" style="height:42px;overflow:hidden">{{course.courseDescription}}</p>
+                        <a href="#" class="btn btn-primary btn-sm">Course Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
