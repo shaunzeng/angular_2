@@ -1,12 +1,14 @@
 <br />
-<ol class="breadcrumb">
-  <li class="breadcrumb-item" [class.active]="viewMode == 'myCourses'">
-    <a (click)="viewMode = 'myCourses'">My Courses</a>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" [class.active]="viewMode == 'myCourses'" (click)="viewMode = 'myCourses'">My Courses</a>
   </li>
-  <li class="breadcrumb-item" [class.active]="viewMode == 'searchCourses'">
-    <a (click)="viewMode = 'searchCourses'">Search Courses</a>
+  <li class="nav-item">
+    <a class="nav-link" [class.active]="viewMode == 'searchCourses'" (click)="viewMode = 'searchCourses'"
+      >Search Courses</a
+    >
   </li>
-</ol>
+</ul>
 <br />
 <div [ngSwitch]="viewMode">
   <div *ngSwitchCase="'myCourses'">
