@@ -1,11 +1,8 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-    selector:'quizzes-component',
-    moduleId:module.id,
-    templateUrl:'Quizzes.html'
+  selector: 'quizzes-component',
+  moduleId: module.id,
+  templateUrl: 'Quizzes.html',
 })
-
-export class QuizzesComponent{
-    
-}
+export class QuizzesComponent {}

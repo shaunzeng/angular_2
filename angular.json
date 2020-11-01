@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-x-rocket": {
+    "student-course": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -30,9 +30,7 @@
               "src/manifest.webmanifest",
               "src/assets"
             ],
-            "styles": [
-              "src/main.scss"
-            ],
+            "styles": ["src/main.scss"],
             "scripts": []
           },
           "configurations": {
@@ -73,13 +71,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-x-rocket:build",
+            "browserTarget": "student-course:build",
             "hmr": true,
             "hmrWarning": false
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-x-rocket:build:production",
+              "browserTarget": "student-course:build:production",
               "hmr": false
             },
             "ci": {
@@ -90,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-x-rocket:build"
+            "browserTarget": "student-course:build"
           }
         },
         "test": {
@@ -110,30 +108,24 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ng-x-rocket:serve"
+            "devServerTarget": "student-course:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ng-x-rocket:serve:production"
+              "devServerTarget": "student-course:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "ng-x-rocket"
+  "defaultProject": "student-course"
 }
