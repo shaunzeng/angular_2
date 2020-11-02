@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit() {
-    console.log('view init : ', this.myChartEle.nativeElement, ApexCharts);
     this.chart = new ApexCharts(this.myChartEle.nativeElement, this.options);
     this.chart.render();
   }
