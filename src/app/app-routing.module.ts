@@ -6,6 +6,7 @@ import { CoursesComponent } from './Courses/Courses.component';
 import { QuizzesComponent } from './Quizzes/Quizzes.component';
 import { EditAccountComponent } from './EditAccount/EditAccount.component';
 import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
+import { TestComponent } from './Test/test.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'courses', component: CoursesComponent },
   { path: 'quizzes', component: QuizzesComponent },
   { path: 'editAccount', component: EditAccountComponent },
+  { path: 'test', component: TestComponent },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];
 

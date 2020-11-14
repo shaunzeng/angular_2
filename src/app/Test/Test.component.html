@@ -1,0 +1,73 @@
+<br />
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">Multicast</div>
+      <div class="card-body">
+        <h6>Cold Observables</h6>
+        <p>Cold Observables are observables that do not share the same result among the subscribers</p>
+        <br />
+        <h6>e.g.</h6>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(1)">Subcribe #1</button>
+              <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(1)">Unsubscribe</button>
+            </div>
+
+            <span class="badge badge-primary badge-pill">{{ subText }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(2)">Subcribe #2</button>
+              <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(2)">Unsubscribe</button>
+            </div>
+
+            <span class="badge badge-primary badge-pill">{{ subText2 }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(3)">Subcribe #3</button>
+              <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(3)">Unsubscribe</button>
+            </div>
+
+            <span class="badge badge-primary badge-pill">{{ subText3 }}</span>
+          </li>
+        </ul>
+
+        <br />
+        <br />
+        <h6>Hot Observables</h6>
+        <p>Hot Observables share the same result among the subscribers</p>
+        <br />
+        <h6>e.g.</h6>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(4)">Subcribe #4</button>
+              <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(4)">Unsubscribe</button>
+            </div>
+
+            <span class="badge badge-primary badge-pill">{{ subText4 }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(5)">Subcribe #5</button>
+              <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(5)">Unsubscribe</button>
+            </div>
+
+            <span class="badge badge-primary badge-pill">{{ subText5 }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(6)">Subcribe #6</button>
+              <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(5)">Unsubscribe</button>
+            </div>
+
+            <span class="badge badge-primary badge-pill">{{ subText6 }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
