@@ -30,4 +30,5 @@ export const routableComponents = [
   QuizzesComponent,
   EditAccountComponent,
   PageNotFoundComponent,
+  TestComponent,
 ];
