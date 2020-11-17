@@ -97,9 +97,13 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <h6>share</h6>
-            <h6>publish</h6>
-            <h6>refCount <small>count subscriptions and subscribe only once </small></h6>
+            <h6>share, publish, refCount</h6>
+            <p>
+              With observable.publish().refCount(), once the observer completes, it will not restart if a new subscriber
+              is added after completion. Whereas with observable.share(), if the underlying observer completes and a new
+              subscriber is added later, the observer effectively begins a new execution and starts emitting data.
+            </p>
+
             <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
               <button class="btn btn-primary btn-sm" (click)="runRefCount()">Run refCount</button>
             </div>
@@ -207,17 +211,47 @@
             </p>
           </div>
           <div class="col-md-6">
-            <h6>Subject, AsyncSubject, BehaviorSubject, ReplaySubject</h6>
+            <h6>
+              Subject, AsyncSubject, BehaviorSubject, ReplaySubject
+              <small class="text-muted">
+                <br />
+                Subject - no init value, <br />
+                AsyncSubject - emits last value on complete, <br />
+                BehaviorSubject - Requires an initial value and emits the current value to new subscribers, <br />
+                ReplaySubject - "Replays" or emits old values to new subscribers
+              </small>
+            </h6>
             <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
               <button class="btn btn-primary btn-sm" (click)="runSubject()">Run Subject</button>
-              <button class="btn btn-outline-primary btn-sm" (click)="runSubject()">Run AsyncSubject</button>
-              <button class="btn btn-primary btn-sm" (click)="runSubject()">Run BehaviorSubject</button>
-              <button class="btn btn-outline-primary btn-sm" (click)="runSubject()">Run ReplaycSubject</button>
+              <button class="btn btn-outline-primary btn-sm" (click)="runAsyncSubject()">Run AsyncSubject</button>
+              <button class="btn btn-primary btn-sm" (click)="runBehaviorSubject()">Run BehaviorSubject</button>
+              <button class="btn btn-outline-primary btn-sm" (click)="runReplaySubject()">Run ReplaycSubject</button>
             </div>
+
+            <h6>Experiment</h6>
+            <button class="btn btn-primary btn-sm" (click)="runExperiment()">Run Experiment</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div *ngIf="viewMode == 'js'">js</div>
+  <div *ngIf="viewMode == 'js'">
+    <div class="row">
+      <div class="col-md-6">
+        <h6>Inheritance</h6>
+        <button class="btn btn-primary btn-sm" (click)="runPrototype()">Prototype</button>
+        <img
+          class="mb-5"
+          src="https://www.lxchuan12.cn/assets/img/ctor-prototype-instance@lxchuan12.24657345.png"
+          alt=""
+          style="width: 100%"
+        />
+        <img src="https://www.lxchuan12.cn/assets/img/es6-extends@lxchuan12.dded51bd.png" alt="" style="width: 100%" />
+      </div>
+      <div class="col-md-6">
+        <h6>Generator</h6>
+        <button class="btn btn-primary btn-sm">Run generator</button>
+      </div>
+    </div>
+  </div>
 </div>

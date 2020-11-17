@@ -1,6 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, Subscription, of, asyncScheduler, queueScheduler, asapScheduler, Subject } from 'rxjs';
-import { observeOn, publish, refCount, share, subscribeOn, tap } from 'rxjs/operators';
+import {
+  interval,
+  Subscription,
+  of,
+  asyncScheduler,
+  queueScheduler,
+  asapScheduler,
+  Subject,
+  AsyncSubject,
+  BehaviorSubject,
+  ReplaySubject,
+} from 'rxjs';
+import {
+  dematerialize,
+  map,
+  merge,
+  observeOn,
+  publish,
+  refCount,
+  share,
+  skip,
+  subscribeOn,
+  take,
+  tap,
+  timeout,
+} from 'rxjs/operators';
 
 @Component({
   selector: 'test-component',
@@ -8,7 +32,7 @@ import { observeOn, publish, refCount, share, subscribeOn, tap } from 'rxjs/oper
   templateUrl: 'Test.component.html',
 })
 export class TestComponent implements OnInit {
-  viewMode: string = 'rxjs';
+  viewMode: string = 'js';
 
   obs1$ = interval(1000);
   sub: Subscription;
@@ -285,12 +309,102 @@ export class TestComponent implements OnInit {
   runSubject() {
     let sub = new Subject();
 
-    sub.next(1);
+    sub.next(1); // no one gets as no subscription yet
+
     sub.subscribe((val) => console.log('Sub 1 : ', val));
-
     sub.next(2);
-    sub.subscribe((val) => console.log('Sub 2 : ', val));
 
+    sub.subscribe((val) => console.log('Sub 2 : ', val));
     sub.next(3);
+  }
+
+  runAsyncSubject() {
+    let sub = new AsyncSubject();
+
+    sub.next(1);
+    sub.next(2);
+    sub.next(666);
+    sub.complete();
+
+    //always get the last value right before complete;
+    sub.subscribe((val) => console.log('sub 1  : ', val));
+    sub.subscribe((val) => console.log('sub 2  : ', val));
+  }
+
+  runBehaviorSubject() {
+    const subject = new BehaviorSubject(123);
+
+    // two new subscribers will get initial value => output: 123, 123
+    subject.subscribe((val) => console.log('sub 1 : ', val));
+    subject.subscribe((val) => console.log('sub 2 : ', val));
+
+    // two subscribers will get new value => output: 456, 456
+    subject.next(456);
+
+    // new subscriber will get latest value (456) => output: 456
+    subject.subscribe((val) => console.log('sub 3 : ', val));
+
+    // all three subscribers will get new value => output: 789, 789, 789
+    subject.next(789);
+  }
+
+  runReplaySubject() {
+    const sub = new ReplaySubject(3);
+
+    sub.next(1);
+    sub.next(2);
+    sub.subscribe((val) => console.log('sub 1  : ', val)); // OUTPUT => 1,2
+    sub.next(3); // OUTPUT => 3
+    sub.next(4); // OUTPUT => 4
+    sub.subscribe((val) => console.log('sub 2  : ', val)); // OUTPUT => 2,3,4 (log of last 3 values from new subscriber)
+    sub.next(5); // OUTPUT => 5,5 (log from both subscribers)
+  }
+
+  runExperiment() {}
+
+  runJs() {
+    var a = b();
+    var c = d();
+
+    console.log(a);
+    console.log(c);
+
+    function b() {
+      return c;
+    }
+
+    var d = function (): any {
+      return b();
+    };
+
+    /*
+     function b(){
+        return c;
+     }
+
+     var a;
+     var c;
+     var d;
+     a = b();
+     c = d();
+     a;
+     c;
+     d = function(){
+       return b();
+     }
+
+    */
+  }
+
+  runPrototype() {}
+
+  runGenerator() {
+    function* generatorExample() {
+      yield 8;
+      yield 9;
+      yield 10;
+    }
+
+    const gen = generatorExample();
   }
 }
