@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
+import { LoginService } from '../login.service';
+import { LoginModalContent } from './login.component';
 
 @Component({
   selector: 'app-nav',
@@ -8,7 +11,21 @@ import { distinctUntilChanged, map } from 'rxjs/operators';
   templateUrl: './nav.component.html',
 })
 export class NavComponent implements OnInit {
-  constructor() {}
+  isLoggedIn$: Observable<boolean>;
+  constructor(public loginService: LoginService, private modalService: NgbModal) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isLoggedIn$ = this.loginService.Login$.asObservable().pipe(distinctUntilChanged());
+  }
+
+  onLogin() {
+    const modalRef = this.modalService.open(LoginModalContent);
+    modalRef.componentInstance.name = 'Login';
+  }
+
+  onLogout() {
+    this.loginService.logout().then(() => {
+      alert('logged out');
+    });
+  }
 }

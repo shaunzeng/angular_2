@@ -40,10 +40,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.statsObs$ = this._homeService.statData$.subscribe((data) => {
-      console.log('data ? ', data);
-    });
-
     this._homeService.getStat();
   }
 

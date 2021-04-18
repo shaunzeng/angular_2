@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class HomeService {
   public username: string = 'Shaun';
-  public statData$ = new BehaviorSubject({});
+  public statData$ = new BehaviorSubject<any>({});
 
   constructor(private http: HttpClient) {}
 

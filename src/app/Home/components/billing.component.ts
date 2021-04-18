@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HomeService } from '../services/home.service';
 import { distinctUntilChanged, map } from 'rxjs/operators';
@@ -8,7 +8,7 @@ import { distinctUntilChanged, map } from 'rxjs/operators';
   moduleId: module.id,
   templateUrl: './billing.component.html',
 })
-export class BillingComponent implements OnInit {
+export class BillingComponent implements OnInit, OnDestroy {
   billing$: Subscription;
   billing: any[];
 
@@ -24,5 +24,9 @@ export class BillingComponent implements OnInit {
       .subscribe((data) => {
         this.billing = data;
       });
+  }
+
+  ngOnDestroy() {
+    this.billing$.unsubscribe();
   }
 }

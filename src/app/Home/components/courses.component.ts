@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HomeService } from '../services/home.service';
 import { distinctUntilChanged, map } from 'rxjs/operators';
@@ -8,7 +8,7 @@ import { distinctUntilChanged, map } from 'rxjs/operators';
   moduleId: module.id,
   templateUrl: './courses.component.html',
 })
-export class CoursesComponent implements OnInit {
+export class CoursesComponent implements OnInit, OnDestroy {
   courses$: Subscription;
   courses: any[];
 
@@ -24,5 +24,9 @@ export class CoursesComponent implements OnInit {
       .subscribe((data) => {
         this.courses = data;
       });
+  }
+
+  ngOnDestroy() {
+    this.courses$.unsubscribe();
   }
 }

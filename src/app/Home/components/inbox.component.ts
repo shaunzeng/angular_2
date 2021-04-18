@@ -25,4 +25,8 @@ export class InboxComponent implements OnInit {
         this.mails = data;
       });
   }
+
+  ngOnDestroy() {
+    this.mails$.unsubscribe();
+  }
 }
