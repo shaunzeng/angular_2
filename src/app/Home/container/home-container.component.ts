@@ -1,12 +1,13 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ICourse, IQuiz, IScholarship } from '../shared/interfaces';
-import { HomeService } from './Home.service';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { ICourse, IQuiz, IScholarship } from '../../shared/interfaces';
+import { HomeService } from '../services/home.service';
 import ApexCharts from 'apexcharts';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'home-component',
+  selector: 'home-container',
   moduleId: module.id,
-  templateUrl: 'Home.html',
+  templateUrl: './home-container.component.html',
   providers: [HomeService],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   public myCourses: Array<ICourse>;
   public myQuizzes: Array<IQuiz>;
   public myScholarship: Array<IScholarship>;
+  public statsObs$: Subscription;
 
   options = {
     chart: {
@@ -35,12 +37,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor(private _homeService: HomeService) {
     this.username = this._homeService.username;
-    this.myCourses = this._homeService.getMyCourses();
-    this.myQuizzes = this._homeService.getMyQuizzes();
-    this.myScholarship = this._homeService.getMyScholarship();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.statsObs$ = this._homeService.statData$.subscribe((data) => {
+      console.log('data ? ', data);
+    });
+
+    this._homeService.getStat();
+  }
 
   ngAfterViewInit() {
     this.chart = new ApexCharts(this.myChartEle.nativeElement, this.options);

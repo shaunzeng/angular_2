@@ -1,0 +1,11 @@
+<div class="card" style="width: 18rem; display: inline-block; margin: 5px" *ngFor="let p of products">
+  <div class="card-body">
+    <h5 class="card-title">{{ p.name }}</h5>
+    <p class="card-text">{{ p.descrption }}</p>
+
+    <div class="star" *ngFor="let star of count(p.rating)"></div>
+  </div>
+
+  <hr />
+  <a href="#" class="btn btn-primary" (click)="onClick(p.id)">details</a>
+</div>

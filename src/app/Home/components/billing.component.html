@@ -1,0 +1,30 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-8">
+        <span>Billing Center</span>
+      </div>
+      <div class="col-md-4">
+        <a href="" class="small">View Details</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="table table-sm table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">Amount</th>
+          <th scope="col">Acount</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payment of billing">
+          <th>{{ payment.amount }}</th>
+          <td>{{ payment.name }}</td>
+          <td>{{ payment.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

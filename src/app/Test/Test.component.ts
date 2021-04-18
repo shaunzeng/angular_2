@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import {
   interval,
   Subscription,
@@ -11,20 +12,8 @@ import {
   BehaviorSubject,
   ReplaySubject,
 } from 'rxjs';
-import {
-  dematerialize,
-  map,
-  merge,
-  observeOn,
-  publish,
-  refCount,
-  share,
-  skip,
-  subscribeOn,
-  take,
-  tap,
-  timeout,
-} from 'rxjs/operators';
+
+import { observeOn, publish, refCount, share, subscribeOn, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'test-component',
@@ -50,7 +39,15 @@ export class TestComponent implements OnInit {
   subText5: number = 0;
   subText6: number = 0;
 
-  ngOnInit() {}
+  constructor() {}
+
+  ngOnInit() {
+    console.log('on init');
+  }
+
+  ngDoCheck() {
+    console.log('do check');
+  }
 
   subscribe(num: number) {
     switch (num) {

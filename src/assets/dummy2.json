@@ -1,0 +1,118 @@
+{
+  "coursesInProgress": [
+    {
+      "id": "607c8bfae42c8d10612ab5b5",
+      "name": "Chase Mendez",
+      "progress": 67,
+      "isCompleted": true,
+      "url": "",
+      "description": "Officia voluptate minim excepteur culpa tempor laborum ullamco duis mollit exercitation non. Cupidatat exercitation nostrud nisi exercitation aliquip pariatur ex consequat. Deserunt culpa ipsum aliqua irure deserunt incididunt irure culpa irure cupidatat sint. Voluptate officia nulla eu ea et fugiat amet.\r\n"
+    },
+    {
+      "id": "607c8bfafbebdcfd89f1d691",
+      "name": "Catalina Henry",
+      "progress": 76,
+      "isCompleted": false,
+      "url": "",
+      "description": "Id do veniam ex elit magna labore ad. Exercitation dolor culpa enim veniam cillum non laborum aute deserunt. Laborum ex commodo enim exercitation. Id sint anim fugiat aliqua. Sint consectetur voluptate anim velit ad excepteur culpa irure reprehenderit aliqua Lorem officia. Nisi nostrud incididunt pariatur laboris irure ut tempor ipsum velit.\r\n"
+    },
+    {
+      "id": "607c8bfa02f58a6c4bb17146",
+      "name": "Monroe Oneil",
+      "progress": 39,
+      "isCompleted": false,
+      "url": "",
+      "description": "Eu magna ullamco esse proident. Eu eu mollit laborum deserunt pariatur elit elit qui sit cillum irure sunt nostrud. Ex esse occaecat tempor excepteur. Occaecat anim est nulla deserunt minim reprehenderit exercitation exercitation amet esse fugiat aute laborum. Anim consectetur incididunt reprehenderit consequat aute mollit.\r\n"
+    }
+  ],
+  "paymentHistory": [
+    {
+      "id": "607c8bfa315bbb142a9d7c73",
+      "amount": "$142.49",
+      "name": "ullamco in magna",
+      "status": "Canceled"
+    },
+    {
+      "id": "607c8bfad0c4e38469dc7069",
+      "amount": "$324.80",
+      "name": "culpa duis voluptate",
+      "status": "Canceled"
+    },
+    {
+      "id": "607c8bfad237e1655584bae2",
+      "amount": "$355.36",
+      "name": "enim dolore duis",
+      "status": "Pending"
+    },
+    {
+      "id": "607c8bfafb79111f2b83ee73",
+      "amount": "$337.87",
+      "name": "eu quis anim",
+      "status": "Canceled"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "607c8bfa67c617d98a48ce2f",
+      "name": "eu aute quis",
+      "isCompleted": true,
+      "result": 4,
+      "tags": ["elit", "exercitation", "irure", "consequat", "aliqua", "ipsum", "deserunt"]
+    },
+    {
+      "id": "607c8bfaecaa346b90754e54",
+      "name": "incididunt Lorem laboris",
+      "isCompleted": true,
+      "result": 3,
+      "tags": ["pariatur", "velit", "reprehenderit", "ullamco", "velit", "sit", "incididunt"]
+    },
+    {
+      "id": "607c8bfa8786722227ae11b0",
+      "name": "laboris ullamco elit",
+      "isCompleted": false,
+      "result": 7,
+      "tags": ["nulla", "consequat", "exercitation", "amet", "sit", "ea", "eu"]
+    },
+    {
+      "id": "607c8bfaa5f85327eceab435",
+      "name": "cupidatat culpa pariatur",
+      "isCompleted": true,
+      "result": 8,
+      "tags": ["occaecat", "anim", "officia", "dolore", "consequat", "culpa", "nisi"]
+    },
+    {
+      "id": "607c8bfa0e4780ba39bf2edf",
+      "name": "laborum nostrud irure",
+      "isCompleted": false,
+      "result": 7,
+      "tags": ["est", "minim", "consectetur", "commodo", "sit", "adipisicing", "voluptate"]
+    }
+  ],
+  "mails": [
+    {
+      "id": "607c8bfa98ca8b573fb3be8b",
+      "title": "ullamco aute ex",
+      "date": "2015-02-23T05:06:01 +05:00",
+      "read": false,
+      "from": "Dunn Macias"
+    },
+    {
+      "id": "607c8bfaaa129940cb59168f",
+      "title": "laborum aliquip excepteur",
+      "date": "2020-12-24T01:57:14 +05:00",
+      "read": true,
+      "from": "Agnes Forbes"
+    },
+    {
+      "id": "607c8bfaedea6c69eb7c01f5",
+      "title": "quis aliquip Lorem",
+      "date": "2016-07-03T12:34:29 +04:00",
+      "read": false,
+      "from": "Dudley Lloyd"
+    }
+  ],
+  "stat": {
+    "coursesCompleted": 15,
+    "totalcourses": 100
+  }
+}

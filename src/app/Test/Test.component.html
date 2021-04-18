@@ -10,10 +10,24 @@
       >RXJS</a
     >
   </li>
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      href
+      [class.active]="viewMode == 'angular'"
+      (click)="$event.preventDefault(); viewMode = 'angular'"
+      >Angular</a
+    >
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href [class.active]="viewMode == 'html5'" (click)="$event.preventDefault(); viewMode = 'html5'"
+      >html5</a
+    >
+  </li>
 </ul>
 
 <div>
-  <div *ngIf="viewMode == 'rxjs'">
+  <div *ngIf="viewMode === 'rxjs'">
     <div class="card mb-3">
       <div class="card-header">Multicast</div>
       <div class="card-body">
@@ -235,7 +249,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="viewMode == 'js'">
+  <div *ngIf="viewMode === 'js'">
     <div class="row">
       <div class="col-md-6">
         <h6>Inheritance</h6>
@@ -253,5 +267,97 @@
         <button class="btn btn-primary btn-sm">Run generator</button>
       </div>
     </div>
+  </div>
+  <div *ngIf="viewMode === 'angular'">
+    <div class="row">
+      <div class="col-md-6">
+        <h6>Zone</h6>
+        <p>
+          Internally, angular uses Zone.js to put all async + sync functions in an angular zone which has hooks for
+          <br />
+          promise, settimeout, http calls, etc that can trigger hooks to finish and trigger change detection, which is
+          basically comparing current value with old value;
+        </p>
+
+        <br />
+        <h6>@Optional</h6>
+        <p>Prevent error when dependency is not found while initializing components</p>
+        <h6>@self</h6>
+        <p>
+          Only try to resolve dependency in its own injector. It will not go up the dependency injection tree to find
+          dependency. To properly add prividers, use providers array in decorator, and give dependency there. It creates
+          an new instance
+        </p>
+      </div>
+      <div class="col-md-6">
+        <h6>Change Dectection</h6>
+        <br />
+        <p>default</p>
+        <p>
+          Change detection is triggered whenever there is a change in binding data, it can be mutating the object, thats
+          why its costly
+        </p>
+        <br />
+        <p>OnPush</p>
+        <p>
+          Change detection is triggered only when the binding data's reference is changed, if the reference is mutatd,
+          it wont trigger the change detection
+        </p>
+      </div>
+    </div>
+
+    <hr />
+    <div class="row">
+      <div class="col-md-6">
+        <h6>Singleton service</h6>
+        <p>
+          Read this
+          <a href="https://indepth.dev/posts/1148/how-to-avoid-angular-injectable-instances-duplication">article</a>
+        </p>
+
+        <p>
+          Keyword : forRoot, add a forRoot method in module class, return services, which are going to be created only
+          once
+        </p>
+        <p>ProvidedIn: 'root'. add providedIn : root in the inejctor class/ service class</p>
+        <p>The key is NOT to list services in the NgModule.providers list when you want singleton services</p>
+      </div>
+
+      <div class="col-md-6">
+        <h6>Tree shakable dependencies</h6>
+        <p>
+          Read <a href="https://indepth.dev/posts/1073/tree-shakable-dependencies-in-angular-projects">this</a> for tree
+          shakable dependencies
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        tags: <br />
+        ng-template <br />
+        ng-container <br />
+        viewChild <br />
+        viewChildren <br />
+        contentChildren <br />
+        life cyclehood
+      </div>
+      <div class="col-md-6"></div>
+    </div>
+  </div>
+
+  <div *ngIf="viewMode === 'html5'">
+    <h6>Application caching</h6>
+    <p>
+      Manifest file, browser wont load new files till you change manifest files, manifest has events and error handle
+      callback
+    </p>
+    <hr />
+    <br />
+    <h6>Web worker</h6>
+    <p>A thread that is run outside current window thread</p>
+    <p>Implementation: addlistener to "message", let w = new Worker, w.postMessage, it has life cycle hooks</p>
+    <hr />
+    <br />
+    <h6>Local storage vs session storage</h6>
   </div>
 </div>

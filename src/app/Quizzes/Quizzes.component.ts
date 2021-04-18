@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
   moduleId: module.id,
   templateUrl: 'Quizzes.html',
 })
-export class QuizzesComponent {}
+export class QuizzesSingleComponent {}

@@ -1,0 +1,117 @@
+{
+  "coursesInProgress": [
+    {
+      "id": "607c68f72167a90e1764fabe",
+      "name": "Mccarty Gutierrez",
+      "progress": 26,
+      "isCompleted": false,
+      "url": "",
+      "description": "Labore eu pariatur pariatur nulla ex elit exercitation excepteur ut sint velit. Voluptate veniam do dolor velit nostrud esse ullamco eu laboris aliqua ex. Eiusmod id non dolore commodo consequat nulla aliqua ad sunt et nisi irure veniam proident.\r\n"
+    },
+    {
+      "id": "607c68f76ceb77972e96fe04",
+      "name": "Misty Garza",
+      "progress": 33,
+      "isCompleted": false,
+      "url": "",
+      "description": "Commodo adipisicing tempor in eu voluptate ex. Incididunt eu adipisicing adipisicing aute in veniam irure eu dolor et irure pariatur eiusmod aliquip. Fugiat veniam dolore sunt consectetur et quis cillum. Pariatur laboris veniam ipsum commodo duis mollit excepteur consequat incididunt fugiat laboris laborum non. Aute est non eiusmod amet et et velit eu labore ad enim deserunt amet consequat.\r\n"
+    },
+    {
+      "id": "607c68f7ccdee471af591cac",
+      "name": "Cline Leon",
+      "progress": 94,
+      "isCompleted": false,
+      "url": "",
+      "description": "Duis magna magna quis commodo. Tempor eiusmod consequat non ut sit officia sunt reprehenderit cillum pariatur pariatur incididunt proident qui. Ipsum dolore ad duis culpa duis sunt veniam occaecat cillum adipisicing excepteur. Adipisicing commodo dolore qui cillum nisi deserunt dolore voluptate pariatur consequat qui ut enim magna. Consequat ad in irure minim tempor sit ut id Lorem amet dolor. Qui dolor esse cillum duis.\r\n"
+    }
+  ],
+  "paymentHistory": [
+    {
+      "id": "607c68f742f77766646efb99",
+      "amount": "$252.66",
+      "name": "sunt veniam magna",
+      "status": "Pending"
+    },
+    {
+      "id": "607c68f7ff7771d61c98f6b1",
+      "amount": "$372.23",
+      "name": "tempor non cillum",
+      "status": "Canceled"
+    },
+    {
+      "id": "607c68f730d90d345eba9891",
+      "amount": "$167.29",
+      "name": "aliqua irure commodo",
+      "status": "Canceled"
+    },
+    {
+      "id": "607c68f776319bde9fce6a1c",
+      "amount": "$161.66",
+      "name": "esse pariatur Lorem",
+      "status": "Completed"
+    },
+    {
+      "id": "607c68f7340629f0abf835fe",
+      "amount": "$364.11",
+      "name": "Lorem magna velit",
+      "status": "Completed"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "607c68f772d0b3d29272f8c9",
+      "name": "incididunt magna nostrud",
+      "isCompleted": false,
+      "result": 7,
+      "tags": ["ut", "deserunt", "nisi", "commodo", "esse", "commodo", "quis"]
+    },
+    {
+      "id": "607c68f7d16292720c2526a1",
+      "name": "laboris occaecat anim",
+      "isCompleted": true,
+      "result": 5,
+      "tags": ["occaecat", "irure", "occaecat", "consequat", "veniam", "sunt", "esse"]
+    },
+    {
+      "id": "607c68f7d0eb03e2d6b91c75",
+      "name": "ut exercitation tempor",
+      "isCompleted": true,
+      "result": 1,
+      "tags": ["ex", "eu", "et", "sint", "sit", "adipisicing", "reprehenderit"]
+    },
+    {
+      "id": "607c68f7234ad0bc4b84a8d4",
+      "name": "aute nulla sit",
+      "isCompleted": true,
+      "result": 1,
+      "tags": ["deserunt", "nostrud", "excepteur", "sit", "Lorem", "proident", "anim"]
+    },
+    {
+      "id": "607c68f75e3559db45a85d71",
+      "name": "nisi et consectetur",
+      "isCompleted": false,
+      "result": 3,
+      "tags": ["aliquip", "duis", "labore", "esse", "dolore", "dolor", "proident"]
+    }
+  ],
+  "mails": [
+    {
+      "id": "607c68f7018a0e06bc6163e2",
+      "title": "exercitation ut laboris",
+      "date": "2016-07-12T01:44:53 +04:00",
+      "read": false,
+      "from": "Hobbs Simon"
+    },
+    {
+      "id": "607c68f740a212db6c073c6c",
+      "title": "et aute mollit",
+      "date": "2016-01-24T09:29:40 +05:00",
+      "read": true,
+      "from": "Oneill Fox"
+    }
+  ],
+  "stat": {
+    "coursesCompleted": 15,
+    "totalcourses": 100
+  }
+}

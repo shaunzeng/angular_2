@@ -8,7 +8,7 @@ import { ICourse } from '../shared/interfaces';
   templateUrl: 'Courses.html',
   providers: [CoursesService],
 })
-export class CoursesComponent {
+export class CoursesSingleComponent {
   public viewMode: string = 'myCourses';
   public myCourses: Array<ICourse>;
   public allCourses: Array<ICourse>;

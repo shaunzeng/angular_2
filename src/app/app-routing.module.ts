@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './Home/Home.component';
-import { CoursesComponent } from './Courses/Courses.component';
-import { QuizzesComponent } from './Quizzes/Quizzes.component';
+import { CoursesSingleComponent } from './Courses/Courses.component';
+import { QuizzesSingleComponent } from './Quizzes/Quizzes.component';
 import { EditAccountComponent } from './EditAccount/EditAccount.component';
 import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 import { TestComponent } from './Test/test.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'home', component: HomeComponent },
-  { path: 'courses', component: CoursesComponent },
-  { path: 'quizzes', component: QuizzesComponent },
+  { path: 'product', loadChildren: () => import('./Product/product.module').then((m) => m.ProductModule) },
+  { path: 'home', loadChildren: () => import('./Home/home.module').then((m) => m.HomeModule) },
+  { path: 'courses', component: CoursesSingleComponent },
+  { path: 'quizzes', component: QuizzesSingleComponent },
   { path: 'editAccount', component: EditAccountComponent },
   { path: 'test', component: TestComponent },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
@@ -25,9 +25,8 @@ const routes: Routes = [
 export class AppRoutingModule {}
 
 export const routableComponents = [
-  HomeComponent,
-  CoursesComponent,
-  QuizzesComponent,
+  CoursesSingleComponent,
+  QuizzesSingleComponent,
   EditAccountComponent,
   PageNotFoundComponent,
   TestComponent,

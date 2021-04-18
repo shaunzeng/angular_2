@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-body" style="height: 280px">
+        <h5 class="card-title">15</h5>
+        <h6 class="card-subtitle mb-2 text-muted small">Total Completion</h6>
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [xaxis]="chartOptions.xaxis"
+          [dataLabels]="chartOptions.dataLabels"
+          [grid]="chartOptions.grid"
+          [stroke]="chartOptions.stroke"
+          [title]="chartOptions.title"
+          [yaxis]="chartOptions.yaxis"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-body" style="height: 280px">
+        <h5 class="card-title">$329</h5>
+        <h6 class="card-subtitle mb-2 text-muted small">Total Payment</h6>
+        <apx-chart
+          [series]="chartOptions2.series"
+          [chart]="chartOptions2.chart"
+          [xaxis]="chartOptions2.xaxis"
+          [dataLabels]="chartOptions2.dataLabels"
+          [grid]="chartOptions2.grid"
+          [stroke]="chartOptions2.stroke"
+          [title]="chartOptions2.title"
+          [yaxis]="chartOptions2.yaxis"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-body" style="height: 280px">
+        <h5 class="card-title">15</h5>
+        <h6 class="card-subtitle mb-2 text-muted small">Progression</h6>
+        <br />
+        <br />
+        <apx-chart
+          [series]="chartOptions3.series"
+          [chart]="chartOptions3.chart"
+          [labels]="chartOptions3.labels"
+          [dataLabels]="chartOptions3.dataLabels"
+          [responsive]="chartOptions3.responsive"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+</div>

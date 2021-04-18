@@ -1,0 +1,31 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-8">
+        <span>Inbox</span>
+      </div>
+      <div class="col-md-4">
+        <a href="" class="small">View Details</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-body"></div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let mail of mails">
+      <div class="row">
+        <div class="col-md-2">
+          <input type="checkbox" />
+        </div>
+        <div class="col-md-8">
+          <h5>
+            <a href="#">{{ mail.title }}</a>
+          </h5>
+          <h6 class="small text-muted">{{ mail.from }}</h6>
+        </div>
+        <div class="col-md-2">
+          <p>{{ mail.date | date: 'h:mm a z' }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,36 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-10">
+        <span>Your courses</span>
+      </div>
+      <div class="col-md-2">
+        <a href="/courses" class="small">View All</a>
+      </div>
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let c of courses">
+      <div class="row">
+        <div class="col-md-7">
+          <a href="/courses/{{ c.url }}">{{ c.name }}</a>
+          <span class="tag tag-info">{{ c.progress }}%</span>
+        </div>
+        <div class="col-md-5">
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [ngStyle]="{ width: c.progress + '%' }"
+              aria-valuenow="c.progress"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              {{ c.progress }}%
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
