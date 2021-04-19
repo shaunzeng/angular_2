@@ -1,0 +1,82 @@
+{
+  "coursesInProgress": [
+    {
+      "id": "607cd75cdcac1db837beb5f2",
+      "name": "Marisa Franks",
+      "progress": 85,
+      "isCompleted": false,
+      "url": "",
+      "description": "Occaecat sunt amet pariatur sint amet laboris dolor. Pariatur dolor labore laborum aliquip consequat velit irure. Consectetur in mollit duis est. Deserunt dolore sit dolore commodo. Labore ullamco sint amet excepteur.\r\n"
+    },
+    {
+      "id": "607cd75c728bf74eb0e503cc",
+      "name": "Joann Hewitt",
+      "progress": 75,
+      "isCompleted": true,
+      "url": "",
+      "description": "Est ad ex esse Lorem Lorem fugiat do cillum consectetur ullamco. Laborum elit occaecat voluptate ipsum est ex do dolore. Eiusmod qui laboris incididunt laborum sint ex ad elit esse. Velit culpa cupidatat incididunt ullamco culpa elit ex esse velit cupidatat sunt cillum. Incididunt Lorem laboris consectetur elit nostrud cupidatat quis commodo amet. Est nulla adipisicing elit aliqua sit mollit quis deserunt exercitation dolore magna amet eiusmod. Est sint irure laborum mollit proident ullamco nulla ea minim.\r\n"
+    }
+  ],
+  "paymentHistory": [
+    {
+      "id": "607cd75c5412500d1a1b5610",
+      "amount": "$233.20",
+      "name": "proident pariatur reprehenderit",
+      "status": "Canceled"
+    },
+    {
+      "id": "607cd75cd18a25a9bd4a0a86",
+      "amount": "$296.83",
+      "name": "mollit quis ea",
+      "status": "Completed"
+    },
+    {
+      "id": "607cd75c2f705360674b9e37",
+      "amount": "$382.01",
+      "name": "aute laboris incididunt",
+      "status": "Canceled"
+    },
+    {
+      "id": "607cd75c97d06e13eebc3948",
+      "amount": "$270.78",
+      "name": "consectetur aute sunt",
+      "status": "Canceled"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "607cd75c9500e049a462bef3",
+      "name": "aute laboris sit",
+      "isCompleted": false,
+      "result": 9,
+      "tags": ["officia", "commodo", "commodo", "laboris", "sint", "sit", "consectetur"]
+    },
+    {
+      "id": "607cd75cd004229ad2cd9aa6",
+      "name": "exercitation mollit dolore",
+      "isCompleted": true,
+      "result": 4,
+      "tags": ["ut", "dolore", "do", "veniam", "quis", "voluptate", "enim"]
+    },
+    {
+      "id": "607cd75cd5c1376a927f9c6c",
+      "name": "irure tempor tempor",
+      "isCompleted": false,
+      "result": 3,
+      "tags": ["labore", "minim", "velit", "cupidatat", "proident", "ipsum", "non"]
+    }
+  ],
+  "mails": [
+    {
+      "id": "607cd75c9a2f16dc787c8f72",
+      "title": "sit consequat tempor",
+      "date": "2020-05-10T12:44:25 +04:00",
+      "read": false,
+      "from": "Cunningham Schmidt"
+    }
+  ],
+  "stat": {
+    "coursesCompleted": 15,
+    "totalcourses": 100
+  }
+}

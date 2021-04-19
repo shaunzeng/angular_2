@@ -333,13 +333,16 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        tags: <br />
-        ng-template <br />
-        ng-container <br />
-        viewChild <br />
+        <br />
+        ng-template : Structural directive that will not render initally, it takes inputs params such as let-varname,
+        ngIf, ngIfElse, etc. You cannot have multiple structureal directives on the same html tag.<br />
+        ng-container: renders in the DOM, initially, it takes structural directives, and will NOT add extra html tag in
+        DOM. It also takes *ngTemplateOutlet to render a ng-template content <br />
+        viewChild : to access a child component via its #name<br />
         viewChildren <br />
         contentChildren <br />
-        life cyclehood
+        life cyclehood<br />
+        ngModel
       </div>
       <div class="col-md-6"></div>
     </div>

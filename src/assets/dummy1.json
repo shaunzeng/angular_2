@@ -1,0 +1,98 @@
+{
+  "coursesInProgress": [
+    {
+      "id": "607cd757266664b04a1372a6",
+      "name": "Diann Workman",
+      "progress": 46,
+      "isCompleted": false,
+      "url": "",
+      "description": "Mollit proident velit laboris in cillum commodo quis exercitation aliquip anim nostrud nisi. Deserunt ullamco adipisicing ut duis incididunt. Ut nostrud sunt dolor exercitation adipisicing ea.\r\n"
+    },
+    {
+      "id": "607cd75775717a99503f396b",
+      "name": "Letitia Decker",
+      "progress": 82,
+      "isCompleted": false,
+      "url": "",
+      "description": "Excepteur ex in labore aliquip pariatur. Ullamco cupidatat sit culpa excepteur ipsum tempor do voluptate esse. Elit aute aliquip tempor nisi aliqua aute ex.\r\n"
+    },
+    {
+      "id": "607cd757c7c5fd9dad950b4a",
+      "name": "Gamble Santos",
+      "progress": 33,
+      "isCompleted": true,
+      "url": "",
+      "description": "Aute id mollit amet consectetur est aliqua exercitation culpa fugiat tempor ad dolore. Elit velit proident commodo eu excepteur. Elit do ullamco esse laboris culpa cillum exercitation amet. Velit esse proident et sit sint occaecat enim et id est amet. Pariatur sint non ea nostrud excepteur aute laboris ea qui. Mollit magna et nisi et eu mollit dolor consectetur.\r\n"
+    }
+  ],
+  "paymentHistory": [
+    {
+      "id": "607cd7575e182643b9456208",
+      "amount": "$350.27",
+      "name": "do id aliqua",
+      "status": "Pending"
+    },
+    {
+      "id": "607cd75773dd26a87b0944e3",
+      "amount": "$378.53",
+      "name": "cillum consequat ullamco",
+      "status": "Completed"
+    },
+    {
+      "id": "607cd75709f03b258024d56b",
+      "amount": "$331.53",
+      "name": "officia sit laboris",
+      "status": "Canceled"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "607cd757c4ee62f73895dbdc",
+      "name": "reprehenderit dolor esse",
+      "isCompleted": false,
+      "result": 7,
+      "tags": ["proident", "consectetur", "aute", "adipisicing", "adipisicing", "voluptate", "commodo"]
+    },
+    {
+      "id": "607cd7579de0c9535df808b0",
+      "name": "mollit Lorem aute",
+      "isCompleted": true,
+      "result": 8,
+      "tags": ["in", "eiusmod", "reprehenderit", "eu", "consequat", "officia", "anim"]
+    },
+    {
+      "id": "607cd7575529bc51bbcec433",
+      "name": "commodo sit officia",
+      "isCompleted": false,
+      "result": 2,
+      "tags": ["ullamco", "do", "quis", "commodo", "enim", "quis", "aute"]
+    },
+    {
+      "id": "607cd757734ca2c73353b753",
+      "name": "ex est incididunt",
+      "isCompleted": true,
+      "result": 6,
+      "tags": ["sit", "velit", "ut", "et", "excepteur", "minim", "deserunt"]
+    }
+  ],
+  "mails": [
+    {
+      "id": "607cd757c12d11fa5c6ae95b",
+      "title": "mollit et aliquip",
+      "date": "2017-08-30T10:17:12 +04:00",
+      "read": true,
+      "from": "Martha Peterson"
+    },
+    {
+      "id": "607cd757f2d24a707d930291",
+      "title": "magna aute magna",
+      "date": "2017-11-11T06:47:50 +05:00",
+      "read": false,
+      "from": "Anita Brennan"
+    }
+  ],
+  "stat": {
+    "coursesCompleted": 15,
+    "totalcourses": 100
+  }
+}

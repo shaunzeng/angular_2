@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HomeService } from '../services/home.service';
-import { distinctUntilChanged, map } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'home-billing',
@@ -19,6 +19,7 @@ export class BillingComponent implements OnInit, OnDestroy {
       .asObservable()
       .pipe(
         distinctUntilChanged(),
+        filter((data) => !!data),
         map((data) => data['paymentHistory'])
       )
       .subscribe((data) => {

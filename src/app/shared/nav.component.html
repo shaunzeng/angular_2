@@ -31,16 +31,15 @@
         </li>
       </ul>
 
-      <div class="navbar-nav" *ngIf="!(isLoggedIn$ | async)">
-        <div class="btn-group" role="group">
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngIf="!(isLoggedIn$ | async)">
           <button type="button" class="btn btn-default" (click)="onLogin()">Login</button>
-        </div>
-      </div>
-
-      <div class="navbar-nav" *ngIf="isLoggedIn$ | async">
-        <span class="pt-3 mr-2">Welcome back, {{ loginService.username }}</span>
-        <button class="btn btn-default btn-sm" (click)="onLogout()">Log out</button>
-      </div>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn$ | async">
+          <a class="text-muted btn btn-default">Welcome back, {{ loginService.username }}</a>
+          <button class="btn btn-light" (click)="onLogout()">Log out</button>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

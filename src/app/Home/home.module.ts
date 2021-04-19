@@ -11,9 +11,10 @@ import { CoursesComponent } from './components/courses.component';
 import { QuizzesComponent } from './components/quizzes.component';
 import { BillingComponent } from './components/billing.component';
 import { InboxComponent } from './components/inbox.component';
+import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule, RouterModule.forChild(routes), NgApexchartsModule],
+  imports: [CommonModule, HttpClientModule, RouterModule.forChild(routes), NgApexchartsModule, SharedModule],
   declarations: [HomeComponent, SummaryComponent, CoursesComponent, QuizzesComponent, BillingComponent, InboxComponent],
   providers: [HomeService],
 })

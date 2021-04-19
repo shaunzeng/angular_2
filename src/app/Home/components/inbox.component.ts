@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HomeService } from '../services/home.service';
-import { distinctUntilChanged, map } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'home-inbox',
@@ -19,6 +19,7 @@ export class InboxComponent implements OnInit {
       .asObservable()
       .pipe(
         distinctUntilChanged(),
+        filter((data) => !!data),
         map((data) => data['mails'])
       )
       .subscribe((data) => {
