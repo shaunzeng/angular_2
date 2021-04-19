@@ -26,341 +26,405 @@
   </li>
 </ul>
 
-<div>
-  <div *ngIf="viewMode === 'rxjs'">
-    <div class="card mb-3">
-      <div class="card-header">Multicast</div>
-      <div class="card-body">
-        <div class="row mb-5">
-          <div class="col-md-6">
-            <h6>Cold Observables</h6>
-            <p>Cold Observables are observables that do not share the same result among the subscribers</p>
-            <br />
-            <h6>e.g.</h6>
-            <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div>
-                  <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(1)">Subcribe #1</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(1)">
-                    Unsubscribe
-                  </button>
-                </div>
-
-                <span class="badge badge-primary badge-pill">{{ subText }}</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div>
-                  <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(2)">Subcribe #2</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(2)">
-                    Unsubscribe
-                  </button>
-                </div>
-
-                <span class="badge badge-primary badge-pill">{{ subText2 }}</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div>
-                  <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(3)">Subcribe #3</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(3)">
-                    Unsubscribe
-                  </button>
-                </div>
-
-                <span class="badge badge-primary badge-pill">{{ subText3 }}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <h6>Hot Observables</h6>
-            <p>Hot Observables share the same result among the subscribers</p>
-            <br />
-            <h6>e.g.</h6>
-            <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div>
-                  <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(4)">Subcribe #4</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(4)">
-                    Unsubscribe
-                  </button>
-                </div>
-
-                <span class="badge badge-primary badge-pill">{{ subText4 }}</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div>
-                  <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(5)">Subcribe #5</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(5)">
-                    Unsubscribe
-                  </button>
-                </div>
-
-                <span class="badge badge-primary badge-pill">{{ subText5 }}</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <div>
-                  <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(6)">Subcribe #6</button>
-                  <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(6)">
-                    Unsubscribe
-                  </button>
-                </div>
-
-                <span class="badge badge-primary badge-pill">{{ subText6 }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <h6>share, publish, refCount</h6>
-            <p>
-              With observable.publish().refCount(), once the observer completes, it will not restart if a new subscriber
-              is added after completion. Whereas with observable.share(), if the underlying observer completes and a new
-              subscriber is added later, the observer effectively begins a new execution and starts emitting data.
-            </p>
-
-            <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
-              <button class="btn btn-primary btn-sm" (click)="runRefCount()">Run refCount</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-3">
-      <div class="card-header">Schedulers</div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <h6>Call stack, event loop, webapi</h6>
-            <img src="https://miro.medium.com/max/875/1*iHhUyO4DliDwa6x_cO5E3A.gif" alt="error" style="width: 100%" />
-
-            <p>
-              <b>Heap:</b> This is where all the memory allocation happens for your variables, that you have defined in
-              your program. <br />
-              <b>Callback Queue:</b> This is where your asynchronous code gets pushed to, and waits for the execution.
-              <br />
-              <b>Event Loop:</b> Then comes the Event Loop, which keeps running continuously and checks the Main stack,
-              if it has any frames to execute, if not then it checks Callback queue, if Callback queue has codes to
-              execute then it pops the message from it to the Main Stack for the execution. <br />
-              <b>Job Queue:</b> Apart from Callback Queue, browsers have introduced one more queue which is "Job Queue",
-              reserved only for new Promise() functionality. So when you use promises in your code, you add .then()
-              method, which is a callback method. These `thenable` methods are added to Job Queue once the promise has
-              returned/resolved, and then gets executed.
-            </p>
-          </div>
-          <div class="col-md-6">
-            <h6>
-              Sync, settimeout, promise
-              <small class="text-muted">
-                <br />
-                Sync &gt; Promise &gt; settimeout</small
-              >
-            </h6>
-            <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
-              <button class="btn btn-primary btn-sm" (click)="run1()">Run test</button>
-              <button class="btn btn-outline-primary btn-sm" (click)="run2()">Run Blocker test</button>
-            </div>
-
-            <h6>
-              Sync, Async Scheduler
-              <small class="text-muted">
-                <br />
-                ObserveOn determines what context notification will be delivered vs SubscribeOn determins what context
-                subscribe() is called</small
-              >
-            </h6>
-            <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
-              <button class="btn btn-primary btn-sm" (click)="run4()">Run Sync</button>
-              <button class="btn btn-outline-primary btn-sm" (click)="run6()">Run Async</button>
-              <button class="btn btn-primary btn-sm" (click)="run5()">Run Async SubscribeOn</button>
-              <button class="btn btn-outline-primary btn-sm" (click)="run3()">Run Async ObserveOn</button>
-            </div>
-
-            <h6>
-              queueScheduler, asapScheduler, asyncScheduler,
-              <small class="text-muted">
-                <br />
-                queueScheduler = sync, asapScheduler = Promise, asyncScheduler = settimeout
-              </small>
-            </h6>
-            <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
-              <button class="btn btn-primary btn-sm" (click)="run7()">Run queueScheduler</button>
-            </div>
-
-            <h6>
-              animationFrameScheduler
-              <small class="text-muted">
-                <br />
-                executes asynchronously
-              </small>
-            </h6>
-            <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
-              <button class="btn btn-primary btn-sm">Run animationFrameScheduler</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-header">Subjects <small class="text-muted"> - Multicasted observables</small></div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <blockquote class="mb-3" cite="https://rxjs-dev.firebaseapp.com/guide/subject">
-              A Subject is like an Observable, but can multicast to many Observers. Subjects are like EventEmitters:
-              they maintain a registry of many listeners.
-            </blockquote>
-            <p>
-              A Subject is a special type of Observable which shares a single execution path among observers.
-              <br /><br />
-              You can think of this as a single speaker talking at a microphone in a room full of people. Their message
-              (the subject) is being delivered to many (multicast) people (the observers) at once. This is the basis of
-              multicasting. Typical observables would be comparable to a 1 on 1 conversation. <br /><br />
-              There are 4 variants of subjects: <br /><br />
-              <b>Subject</b> - No initial value or replay behavior. <br /><br />
-              <b>AsyncSubject</b> - Emits latest value to observers upon completion. <br /><br />
-              <b>BehaviorSubject</b> - Requires an initial value and emits its current value (last emitted item) to new
-              subscribers. <br /><br />
-              <b>ReplaySubject</b> - Emits specified number of last emitted values (a replay) to new subscribers.
-            </p>
-          </div>
-          <div class="col-md-6">
-            <h6>
-              Subject, AsyncSubject, BehaviorSubject, ReplaySubject
-              <small class="text-muted">
-                <br />
-                Subject - no init value, <br />
-                AsyncSubject - emits last value on complete, <br />
-                BehaviorSubject - Requires an initial value and emits the current value to new subscribers, <br />
-                ReplaySubject - "Replays" or emits old values to new subscribers
-              </small>
-            </h6>
-            <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
-              <button class="btn btn-primary btn-sm" (click)="runSubject()">Run Subject</button>
-              <button class="btn btn-outline-primary btn-sm" (click)="runAsyncSubject()">Run AsyncSubject</button>
-              <button class="btn btn-primary btn-sm" (click)="runBehaviorSubject()">Run BehaviorSubject</button>
-              <button class="btn btn-outline-primary btn-sm" (click)="runReplaySubject()">Run ReplaycSubject</button>
-            </div>
-
-            <h6>Experiment</h6>
-            <button class="btn btn-primary btn-sm" (click)="runExperiment()">Run Experiment</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div *ngIf="viewMode === 'js'">
-    <div class="row">
-      <div class="col-md-6">
-        <h6>Inheritance</h6>
-        <button class="btn btn-primary btn-sm" (click)="runPrototype()">Prototype</button>
-        <img
-          class="mb-5"
-          src="https://www.lxchuan12.cn/assets/img/ctor-prototype-instance@lxchuan12.24657345.png"
-          alt=""
-          style="width: 100%"
-        />
-        <img src="https://www.lxchuan12.cn/assets/img/es6-extends@lxchuan12.dded51bd.png" alt="" style="width: 100%" />
-      </div>
-      <div class="col-md-6">
-        <h6>Generator</h6>
-        <button class="btn btn-primary btn-sm">Run generator</button>
-      </div>
-    </div>
-  </div>
-  <div *ngIf="viewMode === 'angular'">
-    <div class="row">
-      <div class="col-md-6">
-        <h6>Zone</h6>
-        <p>
-          Internally, angular uses Zone.js to put all async + sync functions in an angular zone which has hooks for
-          <br />
-          promise, settimeout, http calls, etc that can trigger hooks to finish and trigger change detection, which is
-          basically comparing current value with old value;
-        </p>
-
-        <br />
-        <h6>@Optional</h6>
-        <p>Prevent error when dependency is not found while initializing components</p>
-        <h6>@self</h6>
-        <p>
-          Only try to resolve dependency in its own injector. It will not go up the dependency injection tree to find
-          dependency. To properly add prividers, use providers array in decorator, and give dependency there. It creates
-          an new instance
-        </p>
-      </div>
-      <div class="col-md-6">
-        <h6>Change Dectection</h6>
-        <br />
-        <p>default</p>
-        <p>
-          Change detection is triggered whenever there is a change in binding data, it can be mutating the object, thats
-          why its costly
-        </p>
-        <br />
-        <p>OnPush</p>
-        <p>
-          Change detection is triggered only when the binding data's reference is changed, if the reference is mutatd,
-          it wont trigger the change detection
-        </p>
-      </div>
-    </div>
-
-    <hr />
-    <div class="row">
-      <div class="col-md-6">
-        <h6>Singleton service</h6>
-        <p>
-          Read this
-          <a href="https://indepth.dev/posts/1148/how-to-avoid-angular-injectable-instances-duplication">article</a>
-        </p>
-
-        <p>
-          Keyword : forRoot, add a forRoot method in module class, return services, which are going to be created only
-          once
-        </p>
-        <p>ProvidedIn: 'root'. add providedIn : root in the inejctor class/ service class</p>
-        <p>The key is NOT to list services in the NgModule.providers list when you want singleton services</p>
-      </div>
-
-      <div class="col-md-6">
-        <h6>Tree shakable dependencies</h6>
-        <p>
-          Read <a href="https://indepth.dev/posts/1073/tree-shakable-dependencies-in-angular-projects">this</a> for tree
-          shakable dependencies
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <br />
-        ng-template : Structural directive that will not render initally, it takes inputs params such as let-varname,
-        ngIf, ngIfElse, etc. You cannot have multiple structureal directives on the same html tag.<br />
-        ng-container: renders in the DOM, initially, it takes structural directives, and will NOT add extra html tag in
-        DOM. It also takes *ngTemplateOutlet to render a ng-template content <br />
-        viewChild : to access a child component via its #name<br />
-        viewChildren <br />
-        contentChildren <br />
-        life cyclehood<br />
-        ngModel
-      </div>
-      <div class="col-md-6"></div>
-    </div>
-  </div>
-
-  <div *ngIf="viewMode === 'html5'">
-    <h6>Application caching</h6>
-    <p>
-      Manifest file, browser wont load new files till you change manifest files, manifest has events and error handle
-      callback
-    </p>
-    <hr />
-    <br />
-    <h6>Web worker</h6>
-    <p>A thread that is run outside current window thread</p>
-    <p>Implementation: addlistener to "message", let w = new Worker, w.postMessage, it has life cycle hooks</p>
-    <hr />
-    <br />
-    <h6>Local storage vs session storage</h6>
-  </div>
+<div *ngIf="viewMode === 'rxjs'">
+  <ng-container *ngTemplateOutlet="rxjsContent"></ng-container>
 </div>
+
+<div *ngIf="viewMode === 'js'">
+  <ng-container *ngTemplateOutlet="jsContent"></ng-container>
+</div>
+
+<div *ngIf="viewMode === 'angular'">
+  <ng-container *ngTemplateOutlet="angularContent"></ng-container>
+</div>
+
+<div *ngIf="viewMode === 'html5'">
+  <ng-container *ngTemplateOutlet="htmlContent"></ng-container>
+</div>
+
+<ng-template #rxjsContent>
+  <div class="card mb-3">
+    <div class="card-header">Multicast</div>
+    <div class="card-body">
+      <div class="row mb-5">
+        <div class="col-md-6">
+          <h6>Cold Observables</h6>
+          <h6>Cold Observables are observables that do not share the same result among the subscribers</h6>
+          <br />
+          <h6>e.g.</h6>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(1)">Subcribe #1</button>
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(1)">
+                  Unsubscribe
+                </button>
+              </div>
+
+              <span class="badge badge-primary badge-pill">{{ subText }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(2)">Subcribe #2</button>
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(2)">
+                  Unsubscribe
+                </button>
+              </div>
+
+              <span class="badge badge-primary badge-pill">{{ subText2 }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(3)">Subcribe #3</button>
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(3)">
+                  Unsubscribe
+                </button>
+              </div>
+
+              <span class="badge badge-primary badge-pill">{{ subText3 }}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h6>Hot Observables</h6>
+          <h6>Hot Observables share the same result among the subscribers</h6>
+          <br />
+          <h6>e.g.</h6>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(4)">Subcribe #4</button>
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(4)">
+                  Unsubscribe
+                </button>
+              </div>
+
+              <span class="badge badge-primary badge-pill">{{ subText4 }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(5)">Subcribe #5</button>
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(5)">
+                  Unsubscribe
+                </button>
+              </div>
+
+              <span class="badge badge-primary badge-pill">{{ subText5 }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <button type="button" class="btn btn-primary btn-sm" (click)="subscribe(6)">Subcribe #6</button>
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="unsubscribe(6)">
+                  Unsubscribe
+                </button>
+              </div>
+
+              <span class="badge badge-primary badge-pill">{{ subText6 }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h6>share, publish, refCount</h6>
+          <h6>
+            With observable.publish().refCount(), once the observer completes, it will not restart if a new subscriber
+            is added after completion. Whereas with observable.share(), if the underlying observer completes and a new
+            subscriber is added later, the observer effectively begins a new execution and starts emitting data.
+          </h6>
+
+          <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
+            <button class="btn btn-primary btn-sm" (click)="runRefCount()">Run refCount</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header">Schedulers</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h6>Call stack, event loop, webapi</h6>
+          <img src="https://miro.medium.com/max/875/1*iHhUyO4DliDwa6x_cO5E3A.gif" alt="error" style="width: 100%" />
+
+          <h6>
+            <b>Heap:</b> This is where all the memory allocation happens for your variables, that you have defined in
+            your program. <br />
+            <b>Callback Queue:</b> This is where your asynchronous code gets pushed to, and waits for the execution.
+            <br />
+            <b>Event Loop:</b> Then comes the Event Loop, which keeps running continuously and checks the Main stack, if
+            it has any frames to execute, if not then it checks Callback queue, if Callback queue has codes to execute
+            then it pops the message from it to the Main Stack for the execution. <br />
+            <b>Job Queue:</b> Apart from Callback Queue, browsers have introduced one more queue which is "Job Queue",
+            reserved only for new Promise() functionality. So when you use promises in your code, you add .then()
+            method, which is a callback method. These `thenable` methods are added to Job Queue once the promise has
+            returned/resolved, and then gets executed.
+          </h6>
+        </div>
+        <div class="col-md-6">
+          <h6>
+            Sync, settimeout, promise
+            <small class="text-muted">
+              <br />
+              Sync &gt; Promise &gt; settimeout</small
+            >
+          </h6>
+          <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
+            <button class="btn btn-primary btn-sm" (click)="run1()">Run test</button>
+            <button class="btn btn-outline-primary btn-sm" (click)="run2()">Run Blocker test</button>
+          </div>
+
+          <h6>
+            Sync, Async Scheduler
+            <small class="text-muted">
+              <br />
+              ObserveOn determines what context notification will be delivered vs SubscribeOn determins what context
+              subscribe() is called</small
+            >
+          </h6>
+          <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
+            <button class="btn btn-primary btn-sm" (click)="run4()">Run Sync</button>
+            <button class="btn btn-outline-primary btn-sm" (click)="run6()">Run Async</button>
+            <button class="btn btn-primary btn-sm" (click)="run5()">Run Async SubscribeOn</button>
+            <button class="btn btn-outline-primary btn-sm" (click)="run3()">Run Async ObserveOn</button>
+          </div>
+
+          <h6>
+            queueScheduler, asapScheduler, asyncScheduler,
+            <small class="text-muted">
+              <br />
+              queueScheduler = sync, asapScheduler = Promise, asyncScheduler = settimeout
+            </small>
+          </h6>
+          <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
+            <button class="btn btn-primary btn-sm" (click)="run7()">Run queueScheduler</button>
+          </div>
+
+          <h6>
+            animationFrameScheduler
+            <small class="text-muted">
+              <br />
+              executes asynchronously
+            </small>
+          </h6>
+          <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
+            <button class="btn btn-primary btn-sm">Run animationFrameScheduler</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header">Subjects <small class="text-muted"> - Multicasted observables</small></div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <blockquote class="mb-3" cite="https://rxjs-dev.firebaseapp.com/guide/subject">
+            A Subject is like an Observable, but can multicast to many Observers. Subjects are like EventEmitters: they
+            maintain a registry of many listeners.
+          </blockquote>
+          <h6>
+            A Subject is a special type of Observable which shares a single execution path among observers.
+            <br /><br />
+            You can think of this as a single speaker talking at a microphone in a room full of people. Their message
+            (the subject) is being delivered to many (multicast) people (the observers) at once. This is the basis of
+            multicasting. Typical observables would be comparable to a 1 on 1 conversation. <br /><br />
+            There are 4 variants of subjects: <br /><br />
+            <b>Subject</b> - No initial value or replay behavior. <br /><br />
+            <b>AsyncSubject</b> - Emits latest value to observers upon completion. <br /><br />
+            <b>BehaviorSubject</b> - Requires an initial value and emits its current value (last emitted item) to new
+            subscribers. <br /><br />
+            <b>ReplaySubject</b> - Emits specified number of last emitted values (a replay) to new subscribers.
+          </h6>
+        </div>
+        <div class="col-md-6">
+          <h6>
+            Subject, AsyncSubject, BehaviorSubject, ReplaySubject
+            <small class="text-muted">
+              <br />
+              Subject - no init value, <br />
+              AsyncSubject - emits last value on complete, <br />
+              BehaviorSubject - Requires an initial value and emits the current value to new subscribers, <br />
+              ReplaySubject - "Replays" or emits old values to new subscribers
+            </small>
+          </h6>
+          <div class="btn-group mb-2 btn-group-sm mb-5" role="group" aria-label="tests">
+            <button class="btn btn-primary btn-sm" (click)="runSubject()">Run Subject</button>
+            <button class="btn btn-outline-primary btn-sm" (click)="runAsyncSubject()">Run AsyncSubject</button>
+            <button class="btn btn-primary btn-sm" (click)="runBehaviorSubject()">Run BehaviorSubject</button>
+            <button class="btn btn-outline-primary btn-sm" (click)="runReplaySubject()">Run ReplaycSubject</button>
+          </div>
+
+          <h6>Experiment</h6>
+          <button class="btn btn-primary btn-sm" (click)="runExperiment()">Run Experiment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #jsContent>
+  <div class="card mb-3">
+    <div class="card-header">Inheritance</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <button class="btn btn-primary btn-sm" (click)="runPrototype()">Prototype</button>
+          <img
+            class="mb-5"
+            src="https://www.lxchuan12.cn/assets/img/ctor-prototype-instance@lxchuan12.24657345.png"
+            alt=""
+            style="width: 100%"
+          />
+          <img
+            src="https://www.lxchuan12.cn/assets/img/es6-extends@lxchuan12.dded51bd.png"
+            alt=""
+            style="width: 100%"
+          />
+        </div>
+        <div class="col-md-6">
+          <h6>Generator</h6>
+          <button class="btn btn-primary btn-sm">Run generator</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #angularContent>
+  <div class="card mb-3">
+    <div class="card-header">Angular</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h6>Zone</h6>
+          <h6>
+            Internally, angular uses Zone.js to put all async + sync functions in an angular zone which has hooks for
+            <br />
+            promise, settimeout, http calls, etc that can trigger hooks to finish and trigger change detection, which is
+            basically comparing current value with old value;
+          </h6>
+
+          <br />
+          <h6>@Optional</h6>
+          <h6>Prevent error when dependency is not found while initializing components</h6>
+          <h6>@self</h6>
+          <h6>
+            Only try to resolve dependency in its own injector. It will not go up the dependency injection tree to find
+            dependency. To properly add prividers, use providers array in decorator, and give dependency there. It
+            creates an new instance
+          </h6>
+        </div>
+        <div class="col-md-6">
+          <h6>Change Dectection</h6>
+          <br />
+          <h6>default</h6>
+          <h6>
+            Change detection is triggered whenever there is a change in binding data, it can be mutating the object,
+            thats why its costly
+          </h6>
+          <br />
+          <h6>OnPush</h6>
+          <h6>
+            Change detection is triggered only when the binding data's reference is changed, if the reference is mutatd,
+            it wont trigger the change detection
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header">Angular</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h6>Singleton service</h6>
+          <h6>
+            Read this https://indepth.dev/h6osts/1148/how-to-avoid-angular-injectable-instances-duplication article
+          </h6>
+          <h6>
+            Keyword : forRoot, add a forRoot method in module class, return services, which are going to be created only
+            once
+          </h6>
+          <h6>ProvidedIn: 'root'. add providedIn : root in the inejctor class/ service class</h6>
+          <h6>The key is NOT to list services in the NgModule.providers list when you want singleton services</h6>
+        </div>
+
+        <div class="col-md-6">
+          <h6>Tree shakable dependencies</h6>
+          <h6>
+            Read https://indepth.dev/h6osts/1073/tree-shakable-dependencies-in-angular-projects for tree shakable
+            dependencies
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header">Angular</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h6>
+            <b>ng-template :</b> Structural directive that will not render initally, it takes inputs params such as
+            let-varname, ngIf, ngIfElse, etc. You cannot have multiple structureal directives on the same html tag.
+          </h6>
+          <h6>
+            <b>ng-container: </b> renders in the DOM, initially, it takes structural directives, and will NOT add extra
+            html tag in DOM. It also takes *ngTemplateOutlet to render a ng-template content
+          </h6>
+          <h6>
+            <b>ViewChild / ViewChildren</b>: ViewChild is to access 1) a child component, 2) a directive, 3) or a DOM
+            element, ViewChild returns the first that matches the selector, you access it in AfterViewInit hook.
+            ViewChildren are to access multiple child components, it returns a QueryList that contains list of children
+            components. In order to change children / child conponent, you ll need to inject ChangeDetectionRef, and
+            call detectChange()
+          </h6>
+          <h6>
+            <b>ContentChild / ConetentChildren:</b> focus on content projection. ng-content is a directive that inject
+            components outside current component into current component. ContentChild selects componenets are that
+            injected from parents and recieved by ng-content selector, ContentChildren selects a list of them.
+          </h6>
+          <h6>
+            Read this article : https://jaxenter.com/simplifying-viewchild-contentchild-angular-142894.html, and this :
+            https://www.infragistics.com/community/blogs/b/infragistics/posts/simplifying-content-projection-in-angular,
+            for content projection
+          </h6>
+          <h6>
+            <b>NgModel:</b> is equivalent to [ngModel] + (ngModelChange), ngModelChange fires before new value gets
+            assigned to ngModel, vs (change) fires after new value gets assigned
+          </h6>
+        </div>
+        <div class="col-md-6"></div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #htmlContent>
+  <div class="card mb-3">
+    <div class="card-header">HTML</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h6>Application caching</h6>
+          <h6>
+            Manifest file, browser wont load new files till you change manifest files, manifest has events and error
+            handle callback
+          </h6>
+        </div>
+        <div class="col-md-6">
+          <h6>Web worker</h6>
+          <h6>A thread that is run outside current window thread</h6>
+          <h6>Implementation: addlistener to "message", let w = new Worker, w.postMessage, it has life cycle hooks</h6>
+          <h6>Local storage vs session storage</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
