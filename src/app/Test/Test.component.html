@@ -310,12 +310,20 @@
 
           <br />
           <h6>@Optional</h6>
-          <h6>Prevent error when dependency is not found while initializing components</h6>
+          <h6>
+            Mark an dependency as optional when initializing a component, so that it does not throw dependency error
+          </h6>
           <h6>@self</h6>
           <h6>
             Only try to resolve dependency in its own injector. It will not go up the dependency injection tree to find
             dependency. To properly add prividers, use providers array in decorator, and give dependency there. It
             creates an new instance
+          </h6>
+          <h6>@skipSelf</h6>
+          <h6>Skip the depdedency in its own injectors, but go up levels to find depedeencies injected.</h6>
+          <h6>@host</h6>
+          <h6>
+            Resolves dependency in the child injectors, and stop at its latest host, it does not go beyond host scope
           </h6>
         </div>
         <div class="col-md-6">
@@ -352,6 +360,12 @@
           </h6>
           <h6>ProvidedIn: 'root'. add providedIn : root in the inejctor class/ service class</h6>
           <h6>The key is NOT to list services in the NgModule.providers list when you want singleton services</h6>
+          <br />
+          <h6>Singleton guard</h6>
+          <h6>
+            add @Optional() @SkipSelf() parent?: GuardedSingletonService in a service constructor that checks for a
+            parent same service, if parent exist, it means that its injecting multiple times
+          </h6>
         </div>
 
         <div class="col-md-6">
@@ -400,7 +414,10 @@
             assigned to ngModel, vs (change) fires after new value gets assigned
           </h6>
         </div>
-        <div class="col-md-6"></div>
+        <div class="col-md-6">
+          life cycle hooks
+          <img src="../src/assets/img/lifecycle.JPG" alt="" />
+        </div>
       </div>
     </div>
   </div>

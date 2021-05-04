@@ -1,5 +1,4 @@
 import {
-  ChartComponent,
   ApexAxisChartSeries,
   ApexChart,
   ApexXAxis,
@@ -7,6 +6,10 @@ import {
   ApexTitleSubtitle,
   ApexStroke,
   ApexGrid,
+  ApexYAxis,
+  ApexNonAxisChartSeries,
+  ApexResponsive,
+  ApexLegend,
 } from 'ng-apexcharts';
 
 export type ChartOptions = {

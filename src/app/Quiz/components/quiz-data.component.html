@@ -1,0 +1,13 @@
+<ag-grid-angular
+  style="width: 100%; height: 500px"
+  class="ag-theme-alpine"
+  [gridOptions]="gridOptions"
+  [enableRangeSelection]="true"
+  (gridReady)="onGridReady($event)"
+  (rowSelected)="onRowSelected($event)"
+  (modelUpdated)="onModelUpdated($event)"
+  (dragStopped)="onColChange($event)"
+  (columnPinned)="onAddColPinned($event)"
+  (rangeSelectionChange)="onCellRangeChange($event)"
+>
+</ag-grid-angular>

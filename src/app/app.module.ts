@@ -12,4 +12,8 @@ import { NavComponent } from './shared/nav.component';
   declarations: [AppComponent, ...routableComponents, WarningDirective, NavComponent],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log('app module instantiated');
+  }
+}

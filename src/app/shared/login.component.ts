@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { LoginService } from '../login.service';
+import { LoginService } from './services/login.service';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({

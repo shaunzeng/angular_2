@@ -7,22 +7,7 @@
   </div>
 
   <div class="col-md-5">
-    <div class="card mb-3">
-      <div class="card-body">
-        <apx-chart
-          [series]="options.series"
-          [chart]="options.chart"
-          [xaxis]="options.xaxis"
-          [stroke]="options.stroke"
-          [dataLabels]="options.dataLabels"
-          [yaxis]="options.yaxis"
-          [labels]="options.labels"
-          [legend]="options.legend"
-          [title]="options.title"
-          [subtitle]="options.subtitle"
-        ></apx-chart>
-      </div>
-    </div>
+    <home-stats></home-stats>
     <home-billing></home-billing>
     <home-inbox></home-inbox>
   </div>

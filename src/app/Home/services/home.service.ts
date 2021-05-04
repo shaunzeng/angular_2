@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { IStat } from '../models/data';
+import { LoginService } from '@app/shared/services/login.service';
 
 @Injectable()
 export class HomeService {
-  public username: string = 'Shaun';
   public statData$ = new BehaviorSubject<IStat>(null);
+  public instanceName: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private loginService: LoginService) {
+    console.log('home service instantiated ');
+  }
 
-  public getStat() {
+  public getStat(username: string) {
     const random = Math.floor(Math.random() * 4);
     this.http.get(`assets/dummy${random}.json`).subscribe({
       next: this.dataHandler.bind(this),
@@ -21,10 +24,18 @@ export class HomeService {
   private dataHandler(data: any) {
     setTimeout(() => {
       this.statData$.next(data);
-    }, 3000);
+    }, 1500);
   }
 
   private errorHandler(err: any) {
     throw new Error(err);
+  }
+
+  setName(name: string) {
+    this.instanceName = name;
+  }
+
+  getName() {
+    return this.instanceName;
   }
 }

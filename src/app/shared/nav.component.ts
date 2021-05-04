@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
-import { LoginService } from '../login.service';
+import { LoginService } from './services/login.service';
 import { LoginModalContent } from './login.component';
 
 @Component({
@@ -15,7 +15,7 @@ export class NavComponent implements OnInit {
   constructor(public loginService: LoginService, private modalService: NgbModal) {}
 
   ngOnInit() {
-    this.isLoggedIn$ = this.loginService.Login$.asObservable().pipe(distinctUntilChanged());
+    this.isLoggedIn$ = this.loginService.isLoggedIn$.asObservable().pipe(distinctUntilChanged());
   }
 
   onLogin() {

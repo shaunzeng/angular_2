@@ -3,11 +3,12 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {
-  Login$ = new BehaviorSubject<boolean>(false);
-  username: string = '';
+  public isLoggedIn$ = new BehaviorSubject<boolean>(false);
+  public username: string;
+  public instanceName: string;
 
   constructor() {
-    console.log('Login service initited');
+    console.log('Login service instantiated');
   }
 
   login(name: string, password: string) {
@@ -15,7 +16,7 @@ export class LoginService {
       if (name !== 'shaun' || password !== 'shaun') {
         rej('Wrong Password');
       } else {
-        this.Login$.next(true);
+        this.isLoggedIn$.next(true);
         this.username = name;
         res(true);
       }
@@ -24,9 +25,17 @@ export class LoginService {
 
   logout() {
     return new Promise((res, rej) => {
-      this.Login$.next(false);
-      this.username = '';
+      this.isLoggedIn$.next(false);
+      this.username = null;
       res(true);
     });
+  }
+
+  setName(name: string) {
+    this.instanceName = name;
+  }
+
+  getName() {
+    return this.instanceName;
   }
 }
