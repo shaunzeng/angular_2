@@ -11,6 +11,7 @@ export class HomeService {
 
   constructor(private http: HttpClient, private loginService: LoginService) {
     console.log('home service instantiated ');
+    console.log(this.loginService.instanceName);
   }
 
   public getStat(username: string) {

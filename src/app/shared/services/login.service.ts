@@ -9,6 +9,7 @@ export class LoginService {
 
   constructor() {
     console.log('Login service instantiated');
+    this.instanceName = 'Shaun';
   }
 
   login(name: string, password: string) {

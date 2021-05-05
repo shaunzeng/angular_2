@@ -49,7 +49,10 @@
       <div class="row mb-5">
         <div class="col-md-6">
           <h6>Cold Observables</h6>
-          <h6>Cold Observables are observables that do not share the same result among the subscribers</h6>
+          <h6>
+            Cold Observables essentially produce data within, only stary pushing values to observers when subscribe is
+            called, it runs upon subscription, and do not share the same result among the subscribers
+          </h6>
           <br />
           <h6>e.g.</h6>
           <ul class="list-group">
@@ -87,7 +90,10 @@
         </div>
         <div class="col-md-6">
           <h6>Hot Observables</h6>
-          <h6>Hot Observables share the same result among the subscribers</h6>
+          <h6>
+            Hot Observables esentially produce data outside themslves, like click event, and share the same result among
+            the subscribers
+          </h6>
           <br />
           <h6>e.g.</h6>
           <ul class="list-group">
@@ -260,6 +266,17 @@
 
           <h6>Experiment</h6>
           <button class="btn btn-primary btn-sm" (click)="runExperiment()">Run Experiment</button>
+          <br />
+          <br />
+          <h6>Operators</h6>
+          Map: transform data Filter: allow data that meets condition Merge: combine multiple observables into one;
+          Concat: only when observable completes, it will start with the next observable; DebounceTime:discard emitted
+          values if a certain time has not passed between last inputs; Pluck: select a property to emit
+          <br />
+
+          SwitchMap : cancels first observable then start the next observable; Take, takeWhile, takeUntil, MergeMap and
+          flatMap are the same thing, mergeMap does NOT unsubscribe forkJoin is like Promise.all, emit values once in an
+          array
         </div>
       </div>
     </div>
@@ -325,6 +342,8 @@
           <h6>
             Resolves dependency in the child injectors, and stop at its latest host, it does not go beyond host scope
           </h6>
+          <h6>@Inject</h6>
+          <h6>this injects a custom provoder, such as provider defined by an injection token</h6>
         </div>
         <div class="col-md-6">
           <h6>Change Dectection</h6>
@@ -340,6 +359,17 @@
             Change detection is triggered only when the binding data's reference is changed, if the reference is mutatd,
             it wont trigger the change detection
           </h6>
+          <br />
+          <h6>Injection hierachy</h6>
+          <br />
+          <h6>Element Injectors</h6>
+          <h6>
+            If services are passed inside a component, angular looks for service inside component (@component ->
+            providers), if it does not exist, angular goes up to its parents component to look for the provider.
+          </h6>
+          <br />
+          <h6>Module Injector</h6>
+          <h6>Child module injector -> parent module injector -> platform injector -> null injector</h6>
         </div>
       </div>
     </div>
@@ -415,8 +445,8 @@
           </h6>
         </div>
         <div class="col-md-6">
-          life cycle hooks
-          <img src="../src/assets/img/lifecycle.JPG" alt="" />
+          life cycle hooks constructor -> ngOnChange -> ngOnInit -> ngDoCheck -> ngAfterContentInit ->
+          ngAfterContentChecked -> ngAfterViewInit -> ngAfterViewChecked -> ngDestory
         </div>
       </div>
     </div>
