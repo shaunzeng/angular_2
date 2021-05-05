@@ -3,6 +3,8 @@
   class="ag-theme-alpine"
   [gridOptions]="gridOptions"
   [enableRangeSelection]="true"
+  [columnDefs]="columnDefs"
+  [rowData]="rowData"
   (gridReady)="onGridReady($event)"
   (rowSelected)="onRowSelected($event)"
   (modelUpdated)="onModelUpdated($event)"
