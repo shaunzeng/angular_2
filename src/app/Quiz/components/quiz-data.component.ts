@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GridApi, GridOptions, GridReadyEvent, GridCol } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { GRID_OPTIONS } from '../constants/gridOptions';
